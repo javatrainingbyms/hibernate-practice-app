@@ -15,6 +15,17 @@ public class DAOUtil {
 	public static Map<String,String> getProjectionInstance(){
 		return new HashMap<>();
 	}
+	
+	public static <C> void transformResultListToBeanClass(Criteria criteria, Map<String, String> projections,
+			Class<C> beanClass) {
+
+		ProjectionList proList = Projections.projectionList();
+		for (Map.Entry<String, String> entry : projections.entrySet()) {
+			proList.add(Projections.property(entry.getKey()), entry.getValue());
+		}
+		criteria.setProjection(Projections.distinct(proList)).setResultTransformer(Transformers.aliasToBean(beanClass));
+
+	}
 	public static void createProjection(Criteria criteria, Map<String,String> projections) {
 		ProjectionList pList=Projections.projectionList();
 		

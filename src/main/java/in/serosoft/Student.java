@@ -3,6 +3,7 @@ package in.serosoft;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -37,4 +38,6 @@ public class Student {
 	@Column(name="marks")
 	private int marks;
 
+	@OneToOne
+	private Laptop laptop;//laptop_code
 }
