@@ -2,6 +2,7 @@ package in.serosoft;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +21,9 @@ public class BankDetail {
 	private String branch;
 	@OneToOne(mappedBy = "bankDetail")
 	private Person person;
+	@OneToOne
+	@JoinColumn(name="cd_id")
+	private CardDetail card;
 	public BankDetail(int id) {
 		super();
 		this.id = id;

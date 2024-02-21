@@ -11,6 +11,7 @@ public class PersonEntry {
 		Configuration configuration=new Configuration().configure();
 		SessionFactory sf=configuration.buildSessionFactory();
 		Session session=sf.openSession();
+		Person p=Person.builder().id(11).name("manish").email("manish@gmail.com").build();
 		Person p1=new Person(1,"manoj","manoj@gmail.com","12345",new BankDetail(1001));
 		Person p2=new Person(2,"sunil","sunil@gmail.com","23456",new BankDetail(1002));
 		Person p3=new Person(3,"keerti","keerti@gmail.com","34567",new BankDetail(1003));
