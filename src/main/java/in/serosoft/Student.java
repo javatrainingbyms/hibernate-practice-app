@@ -1,21 +1,19 @@
 package in.serosoft;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Data
@@ -41,7 +39,21 @@ public class Student {
 	private int marks;
 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="lapy")
+	//@JoinColumn(name="lapy")
 	private Laptop laptop;//laptop_code
+	
+	@OneToMany(mappedBy = "student")
+	private List<Project> projects;
+
+	public Student(int rno, String name, String branch, int sem, int marks, Laptop laptop) {
+		super();
+		this.rno = rno;
+		this.name = name;
+		this.branch = branch;
+		this.sem = sem;
+		this.marks = marks;
+		this.laptop = laptop;
+	}
+	
 
 }

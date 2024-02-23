@@ -16,11 +16,7 @@
 		<mapping class="in.serosoft.Person"/>
 		<mapping class="in.serosoft.BankDetail"/>
 		<mapping class="in.serosoft.CardDetail"/>
-		<!-- 
-		
-		
-		<mapping class="in.serosoft.Employee"/>
-		<mapping class="in.serosoft.Account"/>
-		-->
+		<mapping class="in.serosoft.Project"/>
+
 	</session-factory>
 </hibernate-configuration>
